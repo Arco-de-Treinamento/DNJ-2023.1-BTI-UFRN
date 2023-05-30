@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Personagens/Jogador.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/GUI/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objetos/Luz.tscn" type="PackedScene" id=3]
+
+[node name="LevelTemplate" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[node name="Tilemaps" type="Node" parent="."]
+
+[node name="Objetivos" type="Node" parent="."]
+
+[node name="Portas" type="Node" parent="."]
+
+[node name="Luzes" type="Node" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Luzes"]
+color = Color( 0.0352941, 0.0313726, 0.0313726, 1 )
+
+[node name="Luz" parent="Luzes" instance=ExtResource( 3 )]
+
+[node name="Sons" type="Node" parent="."]
+
+[node name="Tema" type="AudioStreamPlayer2D" parent="Sons"]
+
+[node name="Inimigos" type="Node" parent="."]
+
+[node name="Jogador" parent="." instance=ExtResource( 1 )]

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Socapex - slow squish.wav-bda9da93a5f5a0667e49eb10b2487ffb.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Socapex - slow squish.wav"
+dest_files=[ "res://.import/Socapex - slow squish.wav-bda9da93a5f5a0667e49eb10b2487ffb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Texturas/porta.jpg" type="Texture" id=1]
+[ext_resource path="res://Objetos/Porta.gd" type="Script" id=2]
+[ext_resource path="res://Objetos/Luz.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/SFX/doorwood_open.wav" type="AudioStream" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 99, 13 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 97.2222, 53.9063 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "horizontal"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("../AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "horizontal_reversed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -90.0 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("../AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[node name="Porta" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Corpo" type="StaticBody2D" parent="."]
+scale = Vector2( 0.36, 0.48 )
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corpo"]
+position = Vector2( 100, 14 )
+z_index = 1
+shape = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Corpo"]
+margin_right = 200.0
+margin_bottom = 28.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Area2D" type="Area2D" parent="Corpo"]
+position = Vector2( 99.9999, 14.0625 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corpo/Area2D"]
+position = Vector2( -1.52588e-05, 0 )
+z_index = 2
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Corpo"]
+reset_on_save = false
+anims/RESET = SubResource( 3 )
+anims/horizontal = SubResource( 8 )
+anims/horizontal_reversed = SubResource( 9 )
+
+[node name="Luz" parent="." instance=ExtResource( 3 )]
+enabled = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="body_entered" from="Corpo/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Corpo/Area2D" to="." method="_on_Area2D_body_exited"]

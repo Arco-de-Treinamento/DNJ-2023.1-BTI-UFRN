@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pirates yubatake (pirates carol).mp3-bedbbd1026c0f411461cb8bd688b40f2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Musicas/pirates yubatake (pirates carol).mp3"
+dest_files=[ "res://.import/pirates yubatake (pirates carol).mp3-bedbbd1026c0f411461cb8bd688b40f2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

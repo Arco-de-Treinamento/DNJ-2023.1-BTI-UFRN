@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Pirate orchestra.mp3-7869faa0bf3c62bfee98809433caa973.mp3str"
+
+[deps]
+
+source_file="res://Assets/Musicas/Pirate orchestra.mp3"
+dest_files=[ "res://.import/Pirate orchestra.mp3-7869faa0bf3c62bfee98809433caa973.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

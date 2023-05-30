@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Blackmoor Tides (No Chants).mp3-b04e199d69cdbafd281ea56cbc266a8d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Musicas/Blackmoor Tides (No Chants).mp3"
+dest_files=[ "res://.import/Blackmoor Tides (No Chants).mp3-b04e199d69cdbafd281ea56cbc266a8d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
