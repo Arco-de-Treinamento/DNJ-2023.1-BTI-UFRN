@@ -1,12 +1,16 @@
 
+<p align="center">
+  <img src = "https://raw.githubusercontent.com/JosManoel/DNJ-2023.1-BTI-UFRN/main/Assets/Images/banner.png" style = "width: 60%; border-radius: 18px">
+</p>
+
 <h1 align = "center">
   Piratas Pirados! 
   
   Design de Níveis de Jogos
   
   <p align="center">
-    <img src="https://img.shields.io/github/last-commit/JosManoel/LP1-2023.1-BTI-UFRN">
-    <img src="https://img.shields.io/github/license/JosManoel/LP1-2023.1-BTI-UFRN">
+    <img src="https://img.shields.io/github/last-commit/JosManoel/DNJ-2023.1-BTI-UFRN">
+    <img src="https://img.shields.io/github/license/JosManoel/DNJ-2023.1-BTI-UFRN">
   </p>
 </h1>
 
