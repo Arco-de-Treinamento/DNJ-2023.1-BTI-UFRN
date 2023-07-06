@@ -25,6 +25,10 @@ color = Color( 0.0352941, 0.0313726, 0.0313726, 1 )
 
 [node name="Tema" type="AudioStreamPlayer2D" parent="Sons"]
 
+[node name="Coletaveis" type="Node" parent="."]
+
 [node name="Inimigos" type="Node" parent="."]
+
+[node name="Hazards" type="Node" parent="."]
 
 [node name="Jogador" parent="." instance=ExtResource( 1 )]

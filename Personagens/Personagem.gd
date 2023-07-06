@@ -4,7 +4,7 @@ export var speed : int
 export var vel_normal : int
 export var vel_corrida : int
 export var HP : int 
-export var dano : int 
+export var atkVal : int
 export var knockback : int
 
 var direcao = Vector2(0,0)
@@ -15,8 +15,8 @@ func _physics_process(delta):
 	definir_animacao()
 	move_and_slide(direcao * speed)
 
-func recebeu_ataque(dano, dir):
-	HP -= dano
+func recebeu_ataque(atkVal, dir):
+	HP -= atkVal
 	
 	if HP <= 0:
 		$AnimationPlayer.play("morrer")
@@ -29,17 +29,22 @@ func empurrar_tras(dir):
 	$AudioStreamPlayer.stream = load("res://Assets/SFX/Socapex - new_hits_2.wav")
 	$AudioStreamPlayer.play()
 	
+	var nova_posicao = position
+	
 	if dir == "_cima":
-		position.y -= knockback
+		nova_posicao.y -= knockback
 	elif dir == "_baixo":
-		position.y += knockback
+		nova_posicao.y += knockback
 	elif dir == "_direita":
-		position.x += knockback
+		nova_posicao.x += knockback
 	else:
-		position.x -= knockback
+		nova_posicao.x -= knockback
+	
+	var notion = nova_posicao - position
+	move_and_slide(notion * knockback) 
 
 func definir_movimento():
-	pass
+	pass 
 
 func definir_animacao():
 	pass

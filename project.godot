@@ -55,6 +55,11 @@ ataque={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
+item={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":81,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -62,6 +67,10 @@ ataque={
 2d_physics/layer_2="Cenario"
 2d_physics/layer_3="Objetos"
 2d_physics/layer_4="Inimigos"
+
+[mono]
+
+project/assembly_name="Piratas Pirados"
 
 [physics]
 

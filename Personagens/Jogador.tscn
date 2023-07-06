@@ -971,8 +971,8 @@ speed = 100
 vel_normal = 100
 vel_corrida = 150
 HP = 10
-dano = 2
 HP_Max = 10
+dano = 2
 
 [node name="AnimatedSprite" parent="." index="0"]
 frames = SubResource( 1 )
