@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Personagens/Personagem.gd" type="Script" id=1]
 
-[node name="Personagem" type="KinematicBody2D"]
+[node name="Personagem" type="KinematicBody2D" groups=["Audio", "Mobile"]]
 collision_mask = 14
 script = ExtResource( 1 )
 knockback = 50

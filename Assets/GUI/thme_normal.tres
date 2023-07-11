@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=5 format=2]
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Assets/Fontes/alagard_by_pix3m-d6awiwp.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 23
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=1]
+antialiased = false
+font_path = "res://Assets/Fontes/alagard_by_pix3m-d6awiwp.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+outline_color = Color( 0.0745098, 0.0627451, 0.0627451, 1 )
+font_data = SubResource( 1 )
+
+[resource]
+Button/fonts/font = SubResource( 4 )
+Button/styles/normal = null
+Label/colors/font_color = Color( 0.172549, 0.152941, 0.152941, 1 )
+Label/fonts/font = SubResource( 2 )

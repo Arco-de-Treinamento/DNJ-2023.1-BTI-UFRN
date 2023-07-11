@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Box-Inventory.png-ef35415346c03b70de2987fb1902a4cf.stex"
+path="res://.import/Box-Inventory.png-064f97b592c4e592442305bca116cdf6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Props/Box-Inventory.png"
-dest_files=[ "res://.import/Box-Inventory.png-ef35415346c03b70de2987fb1902a4cf.stex" ]
+source_file="res://Assets/Texturas/Box-Inventory.png"
+dest_files=[ "res://.import/Box-Inventory.png-064f97b592c4e592442305bca116cdf6.stex" ]
 
 [params]
 

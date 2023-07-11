@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/GUI/thme_title.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/GUI/thme_normal.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/GUI/PauseScreen.gd" type="Script" id=3]
+
+[node name="PauseScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Popup" type="Popup" parent="."]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0392157, 0.0352941, 0.0352941, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="Popup/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/MarginContainer/CenterContainer"]
+margin_left = 413.0
+margin_top = 153.0
+margin_right = 571.0
+margin_bottom = 406.0
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="Popup/MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 158.0
+margin_bottom = 57.0
+theme = ExtResource( 1 )
+text = "Pause"
+align = 1
+
+[node name="continuar" type="Button" parent="Popup/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 77.0
+margin_right = 158.0
+margin_bottom = 106.0
+theme = ExtResource( 2 )
+text = "Continuar"
+
+[node name="salvar" type="Button" parent="Popup/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 126.0
+margin_right = 158.0
+margin_bottom = 155.0
+theme = ExtResource( 2 )
+text = "Salvar"
+
+[node name="carregar" type="Button" parent="Popup/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 175.0
+margin_right = 158.0
+margin_bottom = 204.0
+theme = ExtResource( 2 )
+text = "Carregar"
+
+[node name="voltar" type="Button" parent="Popup/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 224.0
+margin_right = 158.0
+margin_bottom = 253.0
+theme = ExtResource( 2 )
+text = "Sair"
+
+[connection signal="pressed" from="Popup/MarginContainer/CenterContainer/VBoxContainer/continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Popup/MarginContainer/CenterContainer/VBoxContainer/salvar" to="." method="_on_salvar_pressed"]
+[connection signal="pressed" from="Popup/MarginContainer/CenterContainer/VBoxContainer/carregar" to="." method="_on_carregar_pressed"]
+[connection signal="pressed" from="Popup/MarginContainer/CenterContainer/VBoxContainer/voltar" to="." method="_on_voltar_pressed"]

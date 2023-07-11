@@ -1,19 +1,17 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Objetos/Coletavel.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Props/Transperent/Icon6.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Props/health_potion.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.5, 15 )
 
-[node name="Espada" instance=ExtResource( 1 )]
-scale = Vector2( 0.8, 0.8 )
-valor = 10
-nome = "espada"
+[node name="porcaoHP" instance=ExtResource( 1 )]
+usavel = true
+valor = 5
+nome = "porcaoHP"
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0.5, 0 )
 shape = SubResource( 1 )

@@ -21,7 +21,6 @@ func definir_movimento():
 			set_physics_process(false)
 	else:
 		caminhar()
-		print(HP)
 
 func caminhar():
 	var alvo = $NavigationAgent2D.get_next_location()

@@ -1,5 +1,6 @@
 extends "res://Personagens/Personagem.gd"
 
+#0 - PATRULHA | 1 - PERSEGUICAO
 var status
 onready var player = get_node("/root").find_node("Jogador", true, false)
 
@@ -32,7 +33,6 @@ func _on_AtaqueArea_body_entered(body):
 		$AnimationPlayer.play("ataque" + frente)
 
 func atacar():
-	#player.recebeu_ataque(dano, frente)
 	player.recebeu_ataque(atkVal, frente)
 	$Timer.start(1)
 
@@ -43,9 +43,19 @@ func pos_ataque():
 	$Timer.start(1)
 
 func gera_loot():
-	var gold = preload("res://Objetos/Gold.tscn")
+	var gold = preload("res://Objetos/Loot/Gold.tscn")
 	var loot = gold.instance()
 	var objetos = get_node("/root").find_node("Coletaveis", true, false)
 	
 	loot.position = position
 	objetos.add_child(loot)
+
+func congelar():
+	set_physics_process(false)
+	$Timer.paused = true
+
+
+func descongelar():
+	set_physics_process(true)
+	$Timer.paused = false
+

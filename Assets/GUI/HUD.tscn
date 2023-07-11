@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/GUI/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Props/health_potion.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Props/ouro15.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Texturas/DialogoBox.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GUI/thme_normal.tres" type="Theme" id=5]
+[ext_resource path="res://Assets/GUI/PauseScreen.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.8, 0.141176, 0.141176, 1 )
@@ -51,11 +54,50 @@ step = 1.0
 value = 10.0
 percent_visible = false
 
-[node name="ItemList" type="ItemList" parent="."]
+[node name="ItemList" type="ItemList" parent="Control"]
 margin_left = 15.0
 margin_top = 42.0
 margin_right = 167.0
-margin_bottom = 82.0
+margin_bottom = 85.0
 theme = SubResource( 4 )
 items = [ "x0", ExtResource( 2 ), true, "x0", ExtResource( 3 ), true ]
 auto_height = true
+
+[node name="Dialogo" type="Popup" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -381.0
+margin_top = -240.0
+margin_right = 381.0
+margin_bottom = -65.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/Dialogo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="Texto" type="Label" parent="Control/Dialogo/NinePatchRect"]
+margin_left = 27.0
+margin_top = 20.0
+margin_right = 734.0
+margin_bottom = 111.0
+theme = ExtResource( 5 )
+text = "teste"
+autowrap = true
+
+[node name="Continue" type="Label" parent="Control/Dialogo/NinePatchRect"]
+margin_left = 630.0
+margin_top = 128.0
+margin_right = 732.0
+margin_bottom = 150.0
+theme = ExtResource( 5 )
+text = "Continuar"
+
+[node name="PauseScreen" parent="Control" instance=ExtResource( 6 )]
+visible = false

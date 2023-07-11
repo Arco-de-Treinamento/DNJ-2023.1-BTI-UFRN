@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready():
+	volume_audio()
+
 func _on_Area2D_body_entered(body):
 	if body.collision_layer == 1:
 		tocar_cutscene_final(body)
@@ -16,3 +19,9 @@ func tocar_cutscene_final(body):
 	animacao.tween_property($Objetivos/Navio, "rotation_degrees", -90.0, 1)
 	animacao.tween_property($Objetivos/Navio, "position", nova_posicao, 7)
 	animacao.tween_callback(get_tree(), "change_scene", ["res://Assets/GUI/Title.tscn"])
+
+func volume_audio():
+	var sons = $Sons.get_children()
+	for i in sons:
+		i.volume_db = Config.pegar_volume("Musica")
+

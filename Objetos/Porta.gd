@@ -1,8 +1,11 @@
 extends Node2D
 
-var pode_usar = false
-var player_position = Vector2.ZERO
-var opened = false
+export var pode_usar = false
+export var player_position = Vector2.ZERO
+export var opened = false
+
+func _ready():
+	volume_audio()
 
 func _on_Area2D_body_entered(body):
 	if body.collision_layer == 1:
@@ -28,3 +31,5 @@ func open_door():
 	opened = true
 	$Luz.enabled = true
 
+func volume_audio():
+	$AudioStreamPlayer.volume_db = Config.pegar_volume("SFX")

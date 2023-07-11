@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Niveis/LevelTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Tiles/Arquitetura.tres" type="TileSet" id=2]
@@ -6,11 +6,20 @@
 [ext_resource path="res://Objetos/Espada.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objetos/Porta.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Personagens/Sentinela.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objetos/PorcaoHP.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objetos/Gold.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objetos/Loot/PorcaoHP.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objetos/Loot/Gold.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objetos/ESpinhos.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objetos/PortaFechada.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objetos/Chave.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objetos/Bau.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Niveis/Sandbox.gd" type="Script" id=13]
+[ext_resource path="res://Objetos/Mensagem.tscn" type="PackedScene" id=14]
 
-[node name="Sandbox" instance=ExtResource( 1 )]
+[node name="Sandbox" groups=["Audio"] instance=ExtResource( 1 )]
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 
 [node name="Arquitetura" type="TileMap" parent="Tilemaps" index="0"]
 tile_set = ExtResource( 2 )
@@ -39,6 +48,10 @@ position = Vector2( 54, 67 )
 position = Vector2( -74, 1 )
 rotation = 1.5708
 
+[node name="PortaFechada" parent="Portas" index="1" instance=ExtResource( 10 )]
+position = Vector2( -244, 55 )
+id = 1
+
 [node name="CanvasModulate" parent="Luzes" index="0"]
 visible = false
 
@@ -52,29 +65,45 @@ position = Vector2( -10, 12 )
 [node name="porcaoHP" parent="Coletaveis" index="0" instance=ExtResource( 7 )]
 position = Vector2( -3, 72 )
 
-[node name="porcaoHP2" parent="Coletaveis" index="1" instance=ExtResource( 7 )]
+[node name="porcaoHP4" parent="Coletaveis" index="1" instance=ExtResource( 7 )]
+position = Vector2( -42, 10 )
+
+[node name="porcaoHP2" parent="Coletaveis" index="2" instance=ExtResource( 7 )]
 position = Vector2( -181, -44 )
 
-[node name="porcaoHP3" parent="Coletaveis" index="2" instance=ExtResource( 7 )]
+[node name="porcaoHP3" parent="Coletaveis" index="3" instance=ExtResource( 7 )]
 position = Vector2( -129, 186 )
 
-[node name="Gold" parent="Coletaveis" index="3" instance=ExtResource( 8 )]
+[node name="Gold" parent="Coletaveis" index="4" instance=ExtResource( 8 )]
 position = Vector2( -34, 63 )
 
-[node name="Gold2" parent="Coletaveis" index="4" instance=ExtResource( 8 )]
+[node name="Gold2" parent="Coletaveis" index="5" instance=ExtResource( 8 )]
 position = Vector2( 210, -75 )
 
-[node name="Gold3" parent="Coletaveis" index="5" instance=ExtResource( 8 )]
+[node name="Gold3" parent="Coletaveis" index="6" instance=ExtResource( 8 )]
 position = Vector2( 221, 228 )
-
-[node name="Gold4" parent="Coletaveis" index="6" instance=ExtResource( 8 )]
-position = Vector2( 48, -35 )
 
 [node name="Gold5" parent="Coletaveis" index="7" instance=ExtResource( 8 )]
 position = Vector2( 283, 107 )
 
 [node name="Gold6" parent="Coletaveis" index="8" instance=ExtResource( 8 )]
 position = Vector2( -291, 71 )
+
+[node name="Chave" parent="Coletaveis" index="9" instance=ExtResource( 11 )]
+position = Vector2( -277, -5 )
+atributo = 1
+valor = 1
+
+[node name="Bau" parent="Coletaveis" index="10" instance=ExtResource( 12 )]
+position = Vector2( 55, 3 )
+random = true
+
+[node name="Bau2" parent="Coletaveis" index="11" instance=ExtResource( 12 )]
+position = Vector2( 6, -61 )
+
+[node name="porcaoHP" parent="Coletaveis/Bau2/Tesouro" index="0" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 6, -64 )
 
 [node name="Sentinela" parent="Inimigos" index="0" instance=ExtResource( 6 )]
 position = Vector2( 34, 425 )
@@ -93,5 +122,10 @@ z_index = 3
 [node name="Camera2D" parent="Jogador" index="4"]
 zoom = Vector2( 1, 1 )
 
+[node name="Mensagem" parent="." index="10" instance=ExtResource( 14 )]
+position = Vector2( -198, 31 )
+texto = "teste"
+
+[editable path="Coletaveis/Bau2"]
 [editable path="Inimigos/Sentinela"]
 [editable path="Jogador"]

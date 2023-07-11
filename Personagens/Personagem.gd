@@ -8,7 +8,10 @@ export var atkVal : int
 export var knockback : int
 
 var direcao = Vector2(0,0)
-var frente = ""
+export var frente : String
+
+func _ready():
+	volume_audio()
 
 func _physics_process(delta):
 	definir_movimento()
@@ -61,3 +64,12 @@ func definir_direcao():
 		frente = "_baixo"
 	elif direcao.y < 0 and abs(direcao.x) < abs(direcao.y):
 		frente = "_cima"
+
+func congelar():
+	set_physics_process(false)
+
+func descongelar():
+	set_physics_process(true)
+
+func volume_audio():
+	$AudioStreamPlayer.volume_db = Config.pegar_volume("SFX")

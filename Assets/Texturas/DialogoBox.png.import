@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BG-Inventory.png-438b8998c8df6cf1d9fd20b916285ad6.stex"
+path="res://.import/DialogoBox.png-25a1740ac979c8a01d4f68df723c7bec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Props/BG-Inventory.png"
-dest_files=[ "res://.import/BG-Inventory.png-438b8998c8df6cf1d9fd20b916285ad6.stex" ]
+source_file="res://Assets/Texturas/DialogoBox.png"
+dest_files=[ "res://.import/DialogoBox.png-25a1740ac979c8a01d4f68df723c7bec.stex" ]
 
 [params]
 

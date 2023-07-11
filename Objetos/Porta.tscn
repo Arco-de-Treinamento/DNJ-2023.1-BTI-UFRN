@@ -86,7 +86,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[node name="Porta" type="Node2D"]
+[node name="Porta" type="Node2D" groups=["Audio"]]
 script = ExtResource( 2 )
 
 [node name="Corpo" type="StaticBody2D" parent="."]

@@ -14,6 +14,11 @@ config/name="Piratas Pirados"
 run/main_scene="res://Assets/GUI/Title.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Config="*res://Scripts/Config.gd"
+SaveGame="*res://Scripts/SaveGame.gd"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
@@ -58,6 +63,16 @@ ataque={
 item={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":81,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Inventario={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":73,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pausar={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":80,"unicode":0,"echo":false,"script":null)
  ]
 }
 

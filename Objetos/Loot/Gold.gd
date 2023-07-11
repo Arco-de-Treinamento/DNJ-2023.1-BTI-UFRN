@@ -38,6 +38,7 @@ var ouro = [
 ]
 
 func _ready():
+	volume_audio()
 	randomize()
 	var escolha = ouro[randi() % ouro.size()]
 	valor = escolha.valor
@@ -52,3 +53,9 @@ func _on_Gold_body_entered(body):
 
 func _on_AudioStreamPlayer_finished():
 	queue_free()
+
+func adiciona_loot(body):
+	emit_signal("body_entered", body)
+
+func volume_audio():
+	$AudioStreamPlayer.volume_db = Config.pegar_volume("SFX")

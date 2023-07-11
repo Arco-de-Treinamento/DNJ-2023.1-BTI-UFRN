@@ -2,10 +2,10 @@ extends "res://Personagens/Personagem.gd"
 
 export var HP_Max : int
 export var dano : int
-var arma = false 
-var potion = 0
-var ouro = 0
-var inventario = []
+export var arma = false 
+export var potion = 0
+export var ouro = 0
+export var inventario = []
 
 func _ready():
 	speed = vel_normal
@@ -20,6 +20,7 @@ func _input(event):
 	if Input.is_action_just_pressed("ataque") and arma:
 		$AnimationPlayer.play("ataque" + frente)
 		set_physics_process(false)
+		
 	elif (Input.is_action_just_pressed("item") and potion > 0):
 		HP += 3
 		
@@ -27,16 +28,38 @@ func _input(event):
 			HP = HP_Max
 		
 		potion -= 1
+		
+		if potion == 0:
+			for i in inventario:
+				if i.nome == "porcaoHP":
+					inventario.erase(i)
+	
+	elif Input.is_action_just_pressed("pausar"):
+		var HUD = get_tree().get_root().find_node("HUD", true, false)
+		
+		HUD.pausar_jogo()
 
 func recebe_item(item):
-	if item.usavel:
-		#inventario.append(item)
-		
-		if item.nome == "porcaoHP":
-			potion =+ 1
-	else:
-		atkVal = item.atributo
-		arma = item
+	if inventario.size() <= 15:
+		if item.usavel:
+			if item.nome == "porcaoHP":
+				potion += 1
+				var achou = false
+				
+				for i in inventario:
+					if item.nome == i.nome:
+						achou = true
+				
+				if not achou:
+					inventario.append(item)
+			else:
+				inventario.append(item)
+
+		else:
+			print(atkVal)
+			atkVal = item.atributo
+			arma = item
+			print(atkVal)
 
 func definir_movimento():
 	direcao.x = Input.get_axis("esqueda","direita")
@@ -59,8 +82,6 @@ func morrer():
 func _on_AtaqueArea_body_entered(body):
 	if body.collision_layer == 8:
 		body.recebeu_ataque(dano, frente)
-		#body.recebeu_ataque(atkVal,frente)
-
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	set_physics_process(true)

@@ -73,7 +73,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CenterContainer/VBoxContainer/VBoxContainer/Exit:visible")
+tracks/2/path = NodePath("CenterContainer/VBoxContainer/VBoxContainer/Load:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -81,7 +81,31 @@ tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/VBoxContainer/VBoxContainer/Config:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/VBoxContainer/VBoxContainer/Exit:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
 "values": [ true ]
 }
 
@@ -112,31 +136,55 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false, true ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("CenterContainer/VBoxContainer/VBoxContainer/Exit:visible")
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/3/type = "audio"
-tracks/3/path = NodePath("AudioStreamPlayer")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource( 3 )
 } ],
 "times": PoolRealArray( 0.2 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CenterContainer/VBoxContainer/VBoxContainer/Load:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CenterContainer/VBoxContainer/VBoxContainer/Config:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CenterContainer/VBoxContainer/VBoxContainer/Exit:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [node name="Title" type="Control"]
@@ -157,9 +205,9 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 362.0
-margin_top = 169.0
+margin_top = 138.0
 margin_right = 662.0
-margin_bottom = 431.0
+margin_bottom = 462.0
 alignment = 1
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
@@ -174,26 +222,46 @@ percent_visible = -0.0714286
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 204.0
 margin_right = 300.0
-margin_bottom = 262.0
+margin_bottom = 324.0
 
 [node name="Start" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 margin_right = 300.0
 margin_bottom = 27.0
-text = "Iniciar!"
+text = "Iniciar"
 
-[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+[node name="Start" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer/Start"]
+margin_right = 300.0
+margin_bottom = 27.0
+text = "Iniciar"
+
+[node name="Load" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 margin_top = 31.0
 margin_right = 300.0
 margin_bottom = 58.0
+text = "Carregar"
+
+[node name="Config" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 62.0
+margin_right = 300.0
+margin_bottom = 89.0
+text = "Configuracoes"
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 93.0
+margin_right = 300.0
+margin_bottom = 120.0
 text = "Sair"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 11 )
 anims/tela_inicial = SubResource( 12 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["Audio"]]
 stream = ExtResource( 3 )
 volume_db = -7.068
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Start/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Config" to="." method="_on_Config_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

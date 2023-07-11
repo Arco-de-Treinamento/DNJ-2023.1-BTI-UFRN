@@ -2,12 +2,12 @@
 
 [ext_resource path="res://Assets/Props/ouro5.png" type="Texture" id=1]
 [ext_resource path="res://Objetos/Coletavel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objetos/Gold.gd" type="Script" id=3]
+[ext_resource path="res://Objetos/Loot/Gold.gd" type="Script" id=3]
 [ext_resource path="res://Assets/SFX/gold.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="Gold" instance=ExtResource( 2 )]
+[node name="Gold" groups=["Audio"] instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
